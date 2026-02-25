@@ -3,10 +3,10 @@ public class PalindromeCheckerApp {
         String text = "madam";
         String reversed = "";
         for (int i = text.length() - 1; i >= 0; i--) {
-            reversed = reversed + text.charAt(i);
+            reversed += text.charAt(i);
         }
         boolean result = text.equals(reversed);
-        System.out.println("Input text: " + text);
-        System.out.println("Is it a Palindrome? : " + result);
+        System.out.println("Input : " + text);
+        System.out.println("Is Palindrome? : " + result);
     }
 }
