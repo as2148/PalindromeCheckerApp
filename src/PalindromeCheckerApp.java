@@ -1,10 +1,12 @@
 public class PalindromeCheckerApp {
-
     public static void main(String[] args) {
-
-        System.out.println("Welcome to the Palindrome Checker Management System");
-        System.out.println("Version : 1.0");
-        System.out.println("System initialized successfully.");
-
+        String text = "madam";
+        String reversed = "";
+        for (int i = text.length() - 1; i >= 0; i--) {
+            reversed = reversed + text.charAt(i);
+        }
+        boolean result = text.equals(reversed);
+        System.out.println("Input text: " + text);
+        System.out.println("Is it a Palindrome? : " + result);
     }
 }
