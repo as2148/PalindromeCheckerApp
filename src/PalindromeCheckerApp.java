@@ -1,21 +1,24 @@
-class PalindromeChecker {
-    boolean checkPalindrome(String text) {
-        int start = 0;
-        int end = text.length() - 1;
-        while (start < end) {
-            if (text.charAt(start) != text.charAt(end)) return false;
-            start++;
-            end--;
-        }
+import java.util.*;
+
+interface PalindromeStrategy {
+    boolean check(String text);
+}
+
+class StackStrategy implements PalindromeStrategy {
+    public boolean check(String text) {
+        Stack<Character> stack = new Stack<>();
+        for (char c : text.toCharArray()) stack.push(c);
+        for (char c : text.toCharArray())
+            if (c != stack.pop()) return false;
         return true;
     }
 }
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String text = "racecar";
-        PalindromeChecker checker = new PalindromeChecker();
-        boolean result = checker.checkPalindrome(text);
+        String text = "level";
+        PalindromeStrategy strategy = new StackStrategy();
+        boolean result = strategy.check(text);
         System.out.println("Input : " + text);
         System.out.println("Is Palindrome? : " + result);
     }
